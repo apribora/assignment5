@@ -26,4 +26,4 @@ while True:
 
 request = input("Введіть назву однієї групи для експорту: ")
 while request not in set(all_students[i]['Група'] for i in range(len(all_students))):
-    request = input("Введіть дійсну назву групи для експорту: ")
+    request = input("Введіть дійсну назву групи для експорту:")

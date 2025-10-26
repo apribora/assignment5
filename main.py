@@ -6,7 +6,7 @@ with open('dataset.csv', mode='r', encoding='utf-8') as file:
     for row in reader:
         all_students.append(row)
 
-#Крок 3
+#3
 for student in all_students:
     avg_score = 0
     for score in student:
@@ -22,3 +22,21 @@ while True:
     else:
         print("Такої групи не існує, спрообуйте ще раз.")
 
+#4.2.
+fieldnames = ['Id', 'Прізвище', 'Ім\'я', 'Група',
+              'Основи програмування', 'Лінійна алгебра',
+              'Проекційна геометрія', 'Математичний аналіз',
+              'Середня оцінка']
+#4.2/3
+with open(f"{target_group}.txt", mode='w', encoding='utf-8', newline='') as file:
+    # 4.4.
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    # 4.5.
+    writer.writeheader()
+
+    # 4.6.
+    for student in all_students:
+        if student["Група"] == target_group:
+            writer.writerow(student)
+
+print(f"Завершено. Створено файл {target_group}.")
